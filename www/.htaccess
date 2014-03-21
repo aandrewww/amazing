@@ -1,0 +1,21 @@
+#Язык по дефолту
+DefaultLanguage ru
+
+#Ручное указание кодировки на файлы, в которой по-умолчанию получает документы браузер
+AddDefaultCharset utf-8
+
+#php_value date.timezone "Europe/Minsk"
+
+#Ручное указание кодировки для PHP (можно указать это в php.ini)
+php_value default_charset "utf-8"
+
+#mod_rewrite
+#позволяет переписывать URL страницы на лету
+RewriteEngine On
+
+#Картинки и файлы отдаем как есть
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+#В остальном все GET POST запросы перенаправляем на index.php
+RewriteRule .* index.php [L]
